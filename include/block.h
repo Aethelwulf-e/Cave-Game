@@ -7,12 +7,14 @@ public:
     block();
     ~block();
     bool isExit();
+    bool isOcuppied();
     bool thereIsLight();
     bool isAHole();
     bool thereIsBreeze();
     bool isOrdinary();
     bool wasVisited();
     void visit();
+    void leave();
 
 private:
     bool exit;
@@ -20,6 +22,7 @@ private:
     bool hole;
     bool breeze;
     bool visited;
+    bool ocuppied;
 };
 
 #endif // BLOCK_H

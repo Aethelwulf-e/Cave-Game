@@ -59,7 +59,10 @@ void game::init() {
         {
             system("clear");
             while(!this->player_->isDead()) {
-                this->cave_->at(0, 0)->visit();
+                if(player_->getPosX() == 0 && player_->getPosY() == 0) {
+                  this->cave_->at(0, 0)->visit();
+                }
+
                 this->cave_->show();
 
                 char direction;
@@ -69,6 +72,9 @@ void game::init() {
                 cin >> direction;
 
                 system("clear");
+
+                int lastPosX = this->player_->getPosX();
+                int lastPosY = this->player_->getPosY();
 
                 this->player_->makeAMove(direction);
 
@@ -82,6 +88,7 @@ void game::init() {
                     continue;
                 }
 
+                this->cave_->at(lastPosX, lastPosY)->leave();
                 this->cave_->at(actualPosX, actualPosY)->visit();
 
                 if(this->cave_->at(actualPosX, actualPosY)->isAHole()) {

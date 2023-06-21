@@ -35,21 +35,23 @@ void cave::show() {
         for(int j = 0; j < this->cols; j++) {
             if(this->Cave[i][j]->wasVisited()) {
                 if(this->Cave[i][j]->isAHole()) {
-                    cout << "o ";
+                    cout << "🐺";
                 }
                 else if(this->Cave[i][j]->isExit()) {
-                    cout << "# ";
+                    cout << "🍛";
                 }
                 else if(this->Cave[i][j]->thereIsBreeze()) {
-                    cout << "~ ";
+                    cout << "💨";
                 }
                 else if(this->Cave[i][j]->thereIsLight()) {
-                    cout << "* ";
+                    cout << "🕯️ ";
+                } else if(this->Cave[i][j]->isOcuppied()) {
+                    cout << "🧔";
                 } else {
-                    cout << "x ";
+                    cout << "🐾";
                 }
             } else {
-                cout << "_ ";
+                cout << "🟫";
             }
         }
         cout << endl;
